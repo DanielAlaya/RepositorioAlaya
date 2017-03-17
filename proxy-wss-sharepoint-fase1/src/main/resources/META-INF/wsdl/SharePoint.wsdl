@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+			<s:element name="GetInformacionUsuario">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idfuncionario" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="TipoRemuneracion" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetInformacionUsuarioResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetInformacionUsuarioResult" type="tns:InformacionFuncionarioDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="InformacionFuncionarioDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="rutFuncionario" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreFuncionario" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="apellidoFuncionario" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="activo" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="emailFuncionario" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="induccionFuncionario" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idCentroCostoFuncionario" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idGradoFuncionario" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="tipoCargoFuncionario" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreCentroCosto" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idNodo" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="escalafonFuncionario" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="dependenciasFuncionario" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="comuna" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="idJefe" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idCentroCostoJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="rutJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreCentroCostoJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="correoJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idNodoJefe" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="idCentroCostoCentroResp" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreCentroCostoCentroResp" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreJefeCentroResp" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="idJefeCentroResp" type="s:int"/>
+					<s:element minOccurs="1" maxOccurs="1" name="entidadAdministrativa" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="correoCentroResp" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="idFuncionarioEntAdm" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreFuncionarioEntAdm" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="correoFuncionarioEntAdm" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="codigoEntAdm" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreEntAdm" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="regionEntAdm" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="fechaCargo" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="AntiguedadGrado" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="idEscalafon" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="escalafon" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetEsJefe">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idfuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetEsJefeResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="GetEsJefeResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetConsultarFechaHasta">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="diasconsulta" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="fechadesde" type="s:dateTime"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetConsultarFechaHastaResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetConsultarFechaHastaResult" type="tns:DiasHabilesDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="DiasHabilesDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="fechaHasta" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="VerificarDirector">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idfuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="VerificarDirectorResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="VerificarDirectorResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ObtenerSubalternosPorIdFuncionario">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idfuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="SubalternosDTO">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombreFuncionario" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="tipoRemuneracion" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfSubalternosDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="SubalternosDTO" nillable="true" type="tns:SubalternosDTO"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ObtenerSubalternosPorIdFuncionarioResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ObtenerSubalternosPorIdFuncionarioResult" type="tns:ArrayOfSubalternosDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ObtenerInformacionUsuario">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="InformacionUsuarioDTO">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					<s:element minOccurs="1" maxOccurs="1" name="tipoRemuneracion" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ObtenerInformacionUsuarioResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ObtenerInformacionUsuarioResult" type="tns:InformacionUsuarioDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ObtenerConsultarFechaHasta">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="diasconsulta" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="fechadesde" type="s:dateTime"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ObtenerConsultarFechaHastaResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ObtenerConsultarFechaHastaResult" type="tns:DiasHabilesDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ComboDTO">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="valor" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfComboDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="ComboDTO" nillable="true" type="tns:ComboDTO"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ObtenerBienios">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BieniosDTO">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="fechaInicioBienios" type="s:dateTime"/>
+					<s:element minOccurs="1" maxOccurs="1" name="numeroBienios" type="s:int"/>
+					<s:element minOccurs="1" maxOccurs="1" name="fechaCumplimientoBienio" type="s:dateTime"/>
+					<s:element minOccurs="1" maxOccurs="1" name="fechaProximoBienio" type="s:dateTime"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ObtenerBieniosResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ObtenerBieniosResult" type="tns:BieniosDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ObtenerFechaMinimaSolicitud">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="cantidadDias" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="fechaInicio" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="spDB_DiasHabiles_backResult">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="fecha_final" nillable="true" type="s:dateTime"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="ObtenerFechaMinimaSolicitudResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ObtenerFechaMinimaSolicitudResult" type="tns:spDB_DiasHabiles_backResult"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFuncionarioPresupuesto">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFuncionarioPresupuestoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="EsFuncionarioPresupuestoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFeriado">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFeriadoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="EsFeriadoResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaProvincias">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idRegion" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaProvinciasResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ConsultaProvinciasResult" type="tns:ArrayOfComboDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFuncionarioCR">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="EsFuncionarioCRResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="EsFuncionarioCRResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="GetInformacionUsuarioSoapIn">
+		<wsdl:part name="parameters" element="tns:GetInformacionUsuario"/>
+	</wsdl:message>
+	<wsdl:message name="GetInformacionUsuarioSoapOut">
+		<wsdl:part name="parameters" element="tns:GetInformacionUsuarioResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetEsJefeSoapIn">
+		<wsdl:part name="parameters" element="tns:GetEsJefe"/>
+	</wsdl:message>
+	<wsdl:message name="GetEsJefeSoapOut">
+		<wsdl:part name="parameters" element="tns:GetEsJefeResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetConsultarFechaHastaSoapIn">
+		<wsdl:part name="parameters" element="tns:GetConsultarFechaHasta"/>
+	</wsdl:message>
+	<wsdl:message name="GetConsultarFechaHastaSoapOut">
+		<wsdl:part name="parameters" element="tns:GetConsultarFechaHastaResponse"/>
+	</wsdl:message>
+	<wsdl:message name="VerificarDirectorSoapIn">
+		<wsdl:part name="parameters" element="tns:VerificarDirector"/>
+	</wsdl:message>
+	<wsdl:message name="VerificarDirectorSoapOut">
+		<wsdl:part name="parameters" element="tns:VerificarDirectorResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerSubalternosPorIdFuncionarioSoapIn">
+		<wsdl:part name="parameters" element="tns:ObtenerSubalternosPorIdFuncionario"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerSubalternosPorIdFuncionarioSoapOut">
+		<wsdl:part name="parameters" element="tns:ObtenerSubalternosPorIdFuncionarioResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerInformacionUsuarioSoapIn">
+		<wsdl:part name="parameters" element="tns:ObtenerInformacionUsuario"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerInformacionUsuarioSoapOut">
+		<wsdl:part name="parameters" element="tns:ObtenerInformacionUsuarioResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerConsultarFechaHastaSoapIn">
+		<wsdl:part name="parameters" element="tns:ObtenerConsultarFechaHasta"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerConsultarFechaHastaSoapOut">
+		<wsdl:part name="parameters" element="tns:ObtenerConsultarFechaHastaResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerBieniosSoapIn">
+		<wsdl:part name="parameters" element="tns:ObtenerBienios"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerBieniosSoapOut">
+		<wsdl:part name="parameters" element="tns:ObtenerBieniosResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerFechaMinimaSolicitudSoapIn">
+		<wsdl:part name="parameters" element="tns:ObtenerFechaMinimaSolicitud"/>
+	</wsdl:message>
+	<wsdl:message name="ObtenerFechaMinimaSolicitudSoapOut">
+		<wsdl:part name="parameters" element="tns:ObtenerFechaMinimaSolicitudResponse"/>
+	</wsdl:message>
+	<wsdl:message name="EsFuncionarioPresupuestoSoapIn">
+		<wsdl:part name="parameters" element="tns:EsFuncionarioPresupuesto"/>
+	</wsdl:message>
+	<wsdl:message name="EsFuncionarioPresupuestoSoapOut">
+		<wsdl:part name="parameters" element="tns:EsFuncionarioPresupuestoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="EsFeriadoSoapIn">
+		<wsdl:part name="parameters" element="tns:EsFeriado"/>
+	</wsdl:message>
+	<wsdl:message name="EsFeriadoSoapOut">
+		<wsdl:part name="parameters" element="tns:EsFeriadoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaProvinciasSoapIn">
+		<wsdl:part name="parameters" element="tns:ConsultaProvincias"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaProvinciasSoapOut">
+		<wsdl:part name="parameters" element="tns:ConsultaProvinciasResponse"/>
+	</wsdl:message>
+	<wsdl:message name="EsFuncionarioCRSoapIn">
+		<wsdl:part name="parameters" element="tns:EsFuncionarioCR"/>
+	</wsdl:message>
+	<wsdl:message name="EsFuncionarioCRSoapOut">
+		<wsdl:part name="parameters" element="tns:EsFuncionarioCRResponse"/>
+	</wsdl:message>
+    <wsdl:portType name="WSIntranetSoap">
+		<wsdl:operation name="GetInformacionUsuario">
+			<wsdl:input message="tns:GetInformacionUsuarioSoapIn"/>
+			<wsdl:output message="tns:GetInformacionUsuarioSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetEsJefe">
+			<wsdl:input message="tns:GetEsJefeSoapIn"/>
+			<wsdl:output message="tns:GetEsJefeSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetConsultarFechaHasta">
+			<wsdl:input message="tns:GetConsultarFechaHastaSoapIn"/>
+			<wsdl:output message="tns:GetConsultarFechaHastaSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarDirector">
+			<wsdl:input message="tns:VerificarDirectorSoapIn"/>
+			<wsdl:output message="tns:VerificarDirectorSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerSubalternosPorIdFuncionario">
+			<wsdl:input message="tns:ObtenerSubalternosPorIdFuncionarioSoapIn"/>
+			<wsdl:output message="tns:ObtenerSubalternosPorIdFuncionarioSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerInformacionUsuario">
+			<wsdl:input message="tns:ObtenerInformacionUsuarioSoapIn"/>
+			<wsdl:output message="tns:ObtenerInformacionUsuarioSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerConsultarFechaHasta">
+			<wsdl:input message="tns:ObtenerConsultarFechaHastaSoapIn"/>
+			<wsdl:output message="tns:ObtenerConsultarFechaHastaSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerBienios">
+			<wsdl:input message="tns:ObtenerBieniosSoapIn"/>
+			<wsdl:output message="tns:ObtenerBieniosSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerFechaMinimaSolicitud">
+			<wsdl:input message="tns:ObtenerFechaMinimaSolicitudSoapIn"/>
+			<wsdl:output message="tns:ObtenerFechaMinimaSolicitudSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioPresupuesto">
+			<wsdl:input message="tns:EsFuncionarioPresupuestoSoapIn"/>
+			<wsdl:output message="tns:EsFuncionarioPresupuestoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="EsFeriado">
+			<wsdl:input message="tns:EsFeriadoSoapIn"/>
+			<wsdl:output message="tns:EsFeriadoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaProvincias">
+			<wsdl:input message="tns:ConsultaProvinciasSoapIn"/>
+			<wsdl:output message="tns:ConsultaProvinciasSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioCR">
+			<wsdl:input message="tns:EsFuncionarioCRSoapIn"/>
+			<wsdl:output message="tns:EsFuncionarioCRSoapOut"/>
+		</wsdl:operation>
+    </wsdl:portType>
+	<wsdl:binding name="WSIntranetSoap" type="tns:WSIntranetSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetInformacionUsuario">
+			<soap:operation soapAction="http://tempuri.org/GetInformacionUsuario" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetEsJefe">
+			<soap:operation soapAction="http://tempuri.org/GetEsJefe" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConsultarFechaHasta">
+			<soap:operation soapAction="http://tempuri.org/GetConsultarFechaHasta" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarDirector">
+		<soap:operation soapAction="http://tempuri.org/VerificarDirector" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerSubalternosPorIdFuncionario">
+			<soap:operation soapAction="http://tempuri.org/ObtenerSubalternosPorIdFuncionario" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerInformacionUsuario">
+			<soap:operation soapAction="http://tempuri.org/ObtenerInformacionUsuario" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerConsultarFechaHasta">
+			<soap:operation soapAction="http://tempuri.org/ObtenerConsultarFechaHasta" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerBienios">
+			<soap:operation soapAction="http://tempuri.org/ObtenerBienios" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerFechaMinimaSolicitud">
+			<soap:operation soapAction="http://tempuri.org/ObtenerFechaMinimaSolicitud" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioPresupuesto">
+			<soap:operation soapAction="http://tempuri.org/EsFuncionarioPresupuesto" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFeriado">
+			<soap:operation soapAction="http://tempuri.org/EsFeriado" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaProvincias">
+			<soap:operation soapAction="http://tempuri.org/ConsultaProvincias" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioCR">
+			<soap:operation soapAction="http://tempuri.org/EsFuncionarioCR" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="WSIntranetSoap12" type="tns:WSIntranetSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetInformacionUsuario">
+			<soap12:operation soapAction="http://tempuri.org/GetInformacionUsuario" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetEsJefe">
+			<soap12:operation soapAction="http://tempuri.org/GetEsJefe" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConsultarFechaHasta">
+			<soap12:operation soapAction="http://tempuri.org/GetConsultarFechaHasta" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarDirector">
+			<soap12:operation soapAction="http://tempuri.org/VerificarDirector" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerSubalternosPorIdFuncionario">
+			<soap12:operation soapAction="http://tempuri.org/ObtenerSubalternosPorIdFuncionario" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerInformacionUsuario">
+			<soap12:operation soapAction="http://tempuri.org/ObtenerInformacionUsuario" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerConsultarFechaHasta">
+			<soap12:operation soapAction="http://tempuri.org/ObtenerConsultarFechaHasta" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerBienios">
+			<soap12:operation soapAction="http://tempuri.org/ObtenerBienios" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ObtenerFechaMinimaSolicitud">
+			<soap12:operation soapAction="http://tempuri.org/ObtenerFechaMinimaSolicitud" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioPresupuesto">
+			<soap12:operation soapAction="http://tempuri.org/EsFuncionarioPresupuesto" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFeriado">
+			<soap12:operation soapAction="http://tempuri.org/EsFeriado" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaProvincias">
+			<soap12:operation soapAction="http://tempuri.org/ConsultaProvincias" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="EsFuncionarioCR">
+			<soap12:operation soapAction="http://tempuri.org/EsFuncionarioCR" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WSIntranet">
+		<wsdl:port name="WSIntranetSoap" binding="tns:WSIntranetSoap">
+			<soap:address location="http://localhost:8183/services/wsIntranet/"/>
+		</wsdl:port>
+		<wsdl:port name="WSIntranetSoap12" binding="tns:WSIntranetSoap12">
+			<soap12:address location="http://localhost:8183/services/wsIntranet/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

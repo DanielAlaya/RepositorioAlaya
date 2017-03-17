@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://tempuri.org/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://valida.aem.gob.cl" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="InteropDibamService" targetNamespace="http://valida.aem.gob.cl">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://valida.aem.gob.cl">
+			<xs:import namespace="http://www.w3.org/2000/09/xmldsig#"/>
+			<xs:import namespace="http://schemas.datacontract.org/2004/07/Transparencia.Interoperacion.Dibam.DataTypes"/>
+			<xs:element name="sobre">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="encabezado" nillable="true" type="tns:encabezadoSobre"/>
+						<xs:element minOccurs="0" name="cuerpo" nillable="true" type="tns:cuerpoSobre"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="encabezadoSobre">
+				<xs:sequence>
+					<xs:element name="idSobre" nillable="true" type="xs:string"/>
+					<xs:element name="fechaHora" type="xs:dateTime"/>
+					<xs:element name="proveedor" nillable="true" type="tns:proveedorType"/>
+					<xs:element name="consumidor" nillable="true" type="tns:consumidorType"/>
+					<xs:element name="fechaHoraReq" type="xs:dateTime"/>
+					<xs:element name="emisor" nillable="true" type="xs:string"/>
+					<xs:element name="metadataOperacional" nillable="true" type="tns:estadoGlosaSobreType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="encabezadoSobre" nillable="true" type="tns:encabezadoSobre"/>
+			<xs:complexType name="proveedorType">
+				<xs:sequence>
+					<xs:element name="nombre" nillable="true" type="xs:string"/>
+					<xs:element name="servicios" nillable="true" type="tns:ProveedorTypeServicios"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="proveedorType" nillable="true" type="tns:proveedorType"/>
+			<xs:complexType name="ProveedorTypeServicios">
+				<xs:sequence>
+					<xs:element name="servicio" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="respuestaServicio" nillable="true" type="tns:RespuestaServicio"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ProveedorTypeServicios" nillable="true" type="tns:ProveedorTypeServicios"/>
+			<xs:complexType name="RespuestaServicio">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="estado" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="glosa" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="RespuestaServicio" nillable="true" type="tns:RespuestaServicio"/>
+			<xs:complexType name="consumidorType">
+				<xs:sequence>
+					<xs:element name="nombre" nillable="true" type="xs:string"/>
+					<xs:element name="tramite" nillable="true" type="xs:string"/>
+					<xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" name="certificado" nillable="true" type="q1:Certificado"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="consumidorType" nillable="true" type="tns:consumidorType"/>
+			<xs:complexType name="estadoGlosaSobreType">
+				<xs:sequence>
+					<xs:element name="estadoSobre" nillable="true" type="xs:string"/>
+					<xs:element name="glosaSobre" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="estadoGlosaSobreType" nillable="true" type="tns:estadoGlosaSobreType"/>
+			<xs:complexType name="cuerpoSobre">
+				<xs:sequence>
+					<xs:element name="documento" nillable="true" type="tns:documentoType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="cuerpoSobre" nillable="true" type="tns:cuerpoSobre"/>
+			<xs:complexType name="documentoType">
+				<xs:sequence>
+					<xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Transparencia.Interoperacion.Dibam.DataTypes" name="TransparenciaEventoInteroperacionSAI" nillable="true" type="q2:TransparenciaEventoInteroperacionSAI"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="documentoType" nillable="true" type="tns:documentoType"/>
+			<xs:element name="NewOperation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="in" type="xs:string"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NewOperationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="out" type="xs:string"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/">
+			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
+			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
+			<xs:element name="byte" nillable="true" type="xs:byte"/>
+			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
+			<xs:element name="double" nillable="true" type="xs:double"/>
+			<xs:element name="float" nillable="true" type="xs:float"/>
+			<xs:element name="int" nillable="true" type="xs:int"/>
+			<xs:element name="long" nillable="true" type="xs:long"/>
+			<xs:element name="QName" nillable="true" type="xs:QName"/>
+			<xs:element name="short" nillable="true" type="xs:short"/>
+			<xs:element name="string" nillable="true" type="xs:string"/>
+			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+			<xs:element name="char" nillable="true" type="tns:char"/>
+			<xs:simpleType name="char">
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+			<xs:element name="duration" nillable="true" type="tns:duration"/>
+			<xs:simpleType name="duration">
+				<xs:restriction base="xs:duration">
+					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="guid" nillable="true" type="tns:guid"/>
+			<xs:simpleType name="guid">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:attribute name="FactoryType" type="xs:QName"/>
+			<xs:attribute name="Id" type="xs:ID"/>
+			<xs:attribute name="Ref" type="xs:IDREF"/>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/09/xmldsig#">
+			<xs:complexType name="Certificado">
+				<xs:sequence>
+					<xs:element name="X509Data" nillable="true" type="tns:X509DataType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="Certificado" nillable="true" type="tns:Certificado"/>
+			<xs:complexType name="X509DataType">
+				<xs:sequence>
+					<xs:element name="X509IssuerSerial" nillable="true" type="tns:X509IssuerSerialType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="X509DataType" nillable="true" type="tns:X509DataType"/>
+			<xs:complexType name="X509IssuerSerialType">
+				<xs:sequence>
+					<xs:element name="X509IssuerName" nillable="true" type="xs:string"/>
+					<xs:element name="X509SerialNumber" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="X509IssuerSerialType" nillable="true" type="tns:X509IssuerSerialType"/>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Transparencia.Interoperacion.Dibam.DataTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Transparencia.Interoperacion.Dibam.DataTypes">
+			<xs:complexType name="TransparenciaEventoInteroperacionSAI">
+				<xs:sequence>
+					<!--<xs:element ref="xs:schema"/>-->
+					<xs:any/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="TransparenciaEventoInteroperacionSAI" nillable="true" type="tns:TransparenciaEventoInteroperacionSAI"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="sobre">
+		<wsdl:part name="parameters" element="tns:sobre"/>
+	</wsdl:message>
+	<wsdl:portType name="IInteropDibamService">
+		<wsdl:operation name="SolicitudSAISoap">
+			<wsdl:input wsaw:Action="http://valida.aem.gob.cl/IInteropDibamService/SolicitudSAISoap" message="tns:sobre"/>
+			<wsdl:output wsaw:Action="http://valida.aem.gob.cl/IInteropDibamService/SolicitudSAISoapResponse" message="tns:sobre"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BasicHttpBinding_IInteropDibamService" type="tns:IInteropDibamService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="SolicitudSAISoap">
+			<soap:operation
+				soapAction="http://valida.aem.gob.cl/SolicitudSAISoap" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="InteropDibamService">
+		<wsdl:port name="BasicHttpBinding_IInteropDibamService" binding="tns:BasicHttpBinding_IInteropDibamService">
+			<soap:address location="http://localhost:8183/services/transparencia/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

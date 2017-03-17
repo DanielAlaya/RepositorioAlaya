@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ClaveUnicaAutorizeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://tempuri.org/">
+    		<xsd:element name="loginClaveUnicaAutorize" type="tns:loginClaveUnicaAutorize"/>
+    		<xsd:complexType name="loginClaveUnicaAutorize">
+        		<xsd:sequence>
+            		<xsd:element minOccurs="0" name="clientId" type="xsd:string"/>
+            		<xsd:element minOccurs="0" name="redirectUrl" type="xsd:string"/>
+            		<xsd:element minOccurs="0" name="state" type="xsd:string"/>
+            		<xsd:element minOccurs="0" name="session" type="xsd:string"/>
+        		</xsd:sequence>
+    		</xsd:complexType>
+    		<xsd:element name="loginClaveUnicaAutorizeResponse" type="tns:loginClaveUnicaAutorizeResponse"/>
+    		<xsd:complexType name="loginClaveUnicaAutorizeResponse">
+        		<xsd:sequence>
+            		<xsd:element minOccurs="0" name="return" type="xsd:string"/>
+        		</xsd:sequence>
+    		</xsd:complexType>
+		</xsd:schema>
+  	</wsdl:types>
+  	<wsdl:message name="loginClaveUnicaAutorize">
+    	<wsdl:part name="parameters" element="tns:loginClaveUnicaAutorize"/>
+  	</wsdl:message>
+  	<wsdl:message name="loginClaveUnicaAutorizeResponse">
+    	<wsdl:part name="parameters" element="tns:loginClaveUnicaAutorizeResponse"/>
+  	</wsdl:message>
+  	<wsdl:portType name="ClaveUnicaAutorizeService">
+    	<wsdl:operation name="loginClaveUnicaAutorize">
+      		<wsdl:input name="loginClaveUnicaAutorize" message="tns:loginClaveUnicaAutorize"/>
+      		<wsdl:output name="loginClaveUnicaAutorizeResponse" message="tns:loginClaveUnicaAutorizeResponse"/>
+    	</wsdl:operation>
+  	</wsdl:portType>
+  	<wsdl:binding name="ClaveUnicaAutorizeServiceSoapBinding" type="tns:ClaveUnicaAutorizeService">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<wsdl:operation name="loginClaveUnicaAutorize">
+      		<soap:operation soapAction="http://tempuri.org/loginClaveUnica" style="document"/>
+      		<wsdl:input name="loginClaveUnicaAutorize">
+        		<soap:body use="literal"/>
+      		</wsdl:input>
+      		<wsdl:output name="loginClaveUnicaAutorizeResponse">
+        		<soap:body use="literal"/>
+      		</wsdl:output>
+    	</wsdl:operation>
+  	</wsdl:binding>
+  	<wsdl:service name="ClaveUnicaAutorizeService">
+    	<wsdl:port name="ClaveUnicaAutorizeServicePort" binding="tns:ClaveUnicaAutorizeServiceSoapBinding">
+      		<soap:address location="http://localhost:8183/services/claveUnica/autorize"/>
+    	</wsdl:port>
+  	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+			<s:element name="GetFichaFuncionarioCumpleanos">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetFichaFuncionarioCumpleanosResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetFichaFuncionarioCumpleanosResult" type="tns:FichaFuncionarioDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetFichaFuncionarioPorNombre">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="FichaFuncionarioDTO">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					<s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="email" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="SaludoCumpleanos" type="s:boolean"/>
+					<s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="tipoRemuneracion" type="s:int"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfFichaFuncionarioDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="FichaFuncionarioDTO" nillable="true" type="tns:FichaFuncionarioDTO"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetFichaFuncionarioPorNombreResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetFichaFuncionarioPorNombreResult" type="tns:ArrayOfFichaFuncionarioDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetFichaFuncionarioTelefonosYSaludoCumpleanos">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="idFuncionario" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="TelefonosYSaludoCumpleanosDTO">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Telefonos" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" name="Telefono_Personal" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" name="Saludo_Cumpleanos" type="s:boolean"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetFichaFuncionarioTelefonosYSaludoCumpleanosResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetFichaFuncionarioTelefonosYSaludoCumpleanosResult" type="tns:TelefonosYSaludoCumpleanosDTO"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="GetFichaFuncionarioPorNombreSoapIn">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioPorNombre"/>
+	</wsdl:message>
+	<wsdl:message name="GetFichaFuncionarioPorNombreSoapOut">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioPorNombreResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetFichaFuncionarioCumpleanosSoapIn">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioCumpleanos"/>
+	</wsdl:message>
+	<wsdl:message name="GetFichaFuncionarioCumpleanosSoapOut">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioCumpleanosResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GetFichaFuncionarioTelefonosYSaludoCumpleanosSoapIn">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioTelefonosYSaludoCumpleanos"/>
+	</wsdl:message>
+	<wsdl:message name="GetFichaFuncionarioTelefonosYSaludoCumpleanosSoapOut">
+		<wsdl:part name="parameters" element="tns:GetFichaFuncionarioTelefonosYSaludoCumpleanosResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="WSIntranetF2Soap">
+		<wsdl:operation name="GetFichaFuncionarioPorNombre">
+			<wsdl:input message="tns:GetFichaFuncionarioPorNombreSoapIn"/>
+			<wsdl:output message="tns:GetFichaFuncionarioPorNombreSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioCumpleanos">
+			<wsdl:input message="tns:GetFichaFuncionarioCumpleanosSoapIn"/>
+			<wsdl:output message="tns:GetFichaFuncionarioCumpleanosSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioTelefonosYSaludoCumpleanos">
+			<wsdl:input message="tns:GetFichaFuncionarioTelefonosYSaludoCumpleanosSoapIn"/>
+			<wsdl:output message="tns:GetFichaFuncionarioTelefonosYSaludoCumpleanosSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WSIntranetF2Soap" type="tns:WSIntranetF2Soap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetFichaFuncionarioPorNombre">
+			<soap:operation soapAction="http://tempuri.org/GetFichaFuncionarioPorNombre" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioCumpleanos">
+			<soap:operation soapAction="http://tempuri.org/GetFichaFuncionarioCumpleanos" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioTelefonosYSaludoCumpleanos">
+			<soap:operation soapAction="http://tempuri.org/GetFichaFuncionarioTelefonosYSaludoCumpleanos" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="WSIntranetF2Soap12" type="tns:WSIntranetF2Soap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="GetFichaFuncionarioPorNombre">
+			<soap12:operation soapAction="http://tempuri.org/GetFichaFuncionarioPorNombre" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioCumpleanos">
+			<soap12:operation soapAction="http://tempuri.org/GetFichaFuncionarioCumpleanos" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetFichaFuncionarioTelefonosYSaludoCumpleanos">
+			<soap12:operation soapAction="http://tempuri.org/GetFichaFuncionarioTelefonosYSaludoCumpleanos" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WSIntranetF2">
+		<wsdl:port name="WSIntranetF2Soap" binding="tns:WSIntranetF2Soap">
+			<soap:address location="http://localhost:8183/services/wsIntranetF2/"/>
+		</wsdl:port>
+		<wsdl:port name="WSIntranetF2Soap12" binding="tns:WSIntranetF2Soap12">
+			<soap12:address location="http://localhost:8183/services/wsIntranetF2/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
